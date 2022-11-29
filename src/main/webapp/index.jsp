@@ -9,7 +9,7 @@
         <title>Veuillez vous authentifier</title>
         <link rel='stylesheet' type='text/css' href='styles.css' />
     </head>
-    <body>
+    <body align="center">
         <h1>Veuillez vous authentifier</h1>
         <h2><%= new Date() %></h2>
     
