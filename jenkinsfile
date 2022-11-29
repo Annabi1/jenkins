@@ -4,16 +4,18 @@ pipeline {
 
     stages {
        
-           stage('Notification') {
-            steps {mail bcc: '', body: 'build notification', cc: '', from: '', replyTo: '', subject: 'notifications from pipeline  with the name    DevopsPipelineFinal', to: 'annabi.mabrouka99@gmail.com'            }
-        }
         
-        stage('Git'){
+        stage('SCM Checkout'){
             steps{
 git branch: 'main', url: 'https://github.com/Annabi1/jenkins.git'
 }
             
         }
+        
+           stage('Notification') {
+            steps {mail bcc: '', body: 'build notification', cc: '', from: '', replyTo: '', subject: 'notifications from pipeline  with the name    DevopsPipelineFinal', to: 'annabi.mabrouka99@gmail.com'            }
+        }
+        
 stage('install') {
              steps {
                 sh "mvn install -Dmaven.test.skip=true -P prod"
@@ -23,7 +25,7 @@ stage('install') {
 stage('Build') {
           
             steps {
-                sh "mvn package"
+                sh "mvn package kkkk"
                  
             }
            } 
