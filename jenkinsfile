@@ -39,7 +39,7 @@ stage('Build') {
     stage('Docker') {
           
             steps {
-              
+                sh "mvn package"
                  
             }
            } 
