@@ -1,36 +1,69 @@
  
 
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="java.util.Date"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+ 
+    <%@page import="connexionBase.ConnexionBase" %>
+    <%@page import="java.sql.Connection" %>
+    <%@page import="java.awt.*" %>
+    <%@page import="objets.Image" %>
+    <%@page import="java.util.List" %>
+    <%@page import="java.util.ArrayList" %>
+    <%@ page language="java" import="javazoom.upload.*,java.util.*" %>
+    <%@ page errorPage="ExceptionHandler.jsp" %>
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<jsp:useBean id="userCo" class="beans.UserCoBean" scope="session"></jsp:useBean>
+ 
+<jsp:useBean id="upBean" scope="page" class="javazoom.upload.UploadBean" >
+  <jsp:setProperty name="upBean" property="folderstore" value="c:/uploads" />
+  <jsp:setProperty name="upBean" property="parser" value="<%= MultipartFormDataRequest.CFUPARSER %>"/>
+  <jsp:setProperty name="upBean" property="parsertmpdir" value="c:/temp"/>
+  <jsp:setProperty name="upBean" property="overwritepolicy" value="nametimestamp" />
+</jsp:useBean>
+ 
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Veuillez vous authentifier</title>
-        <link rel='stylesheet' type='text/css' href='styles.css' />
-    </head>
-    <body align="center">
-        <h1>Veuillez vous authentifier</h1>
-        <h2><%= new Date() %></h2>
-    
-        <%
-            String login = request.getParameter( "txtLogin" );
-            String password = request.getParameter( "txtPassword" );
-            if ( login == null ) login = "";
-            if ( password == null ) password = "";
-            
-            if ( request.getMethod().equals( "POST" ) && login.equals( "bond" ) && password.equals( "007" ) ) {
-        %>
-            <p>Welcome <%= login %></p>
-        <% } else { %>
-            <form method="post" action="login.jsp">  <!-- Le paramètre action est ici falcultatif -->
-                <label for='txtLogin'>Login :</label>
-                <input id='txtLogin' name='txtLogin' type='text' value='<%= login %>' autofocus /> <br/>
-                <label for='txtPassword'>Password :</label>
-                <input name='txtPassword' type='password' value='<%= password %>' /> <br/>
-                <br/>
-                <input name='btnConnect' type='submit' value='Se connecter' /> <br/>
-            </form>
-        <% } %>     
-    </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Poster une image</title>
+</head>
+<body>
+<h2>Bienvenue <jsp:getProperty name="userCo" property="nom"/> <jsp:getProperty name="userCo" property="prenom"/></h2><br />
+<form action="EnregistrerImage" name="form" method="POST" enctype="multipart/form-data">
+<fieldset><legend>Poster une image</legend>
+	<input type="hidden" id="idUser" name="idUser" value='<jsp:getProperty property="id" name="userCo"/>' />
+	<table>
+		<tr>
+			<th>Nom :</th>
+			<td><input type="text" id="nomImg" name="nomImg" /></td>
+		</tr>
+		<tr>
+			<th>Description :</th>
+			<td><textarea id="descImg" name="descImg"></textarea></td>
+		</tr>
+		<tr>
+			<th>Catégorie :</th>
+			<td><select name="categ">							
+					<option selected></option>
+					<option value="Sport">Sport</option>
+					<option value="Nature">Nature</option>
+					<option value="Voiture">Voitures</option>
+					<option value="Celebrite">Célébrités</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<th>Fichier :</th>
+			<td><input type="file" id="fichierImg" name="fichierImg"/></td>
+		</tr>
+	</table>
+	<br>
+<input type=submit id="btnEnvoi" value="Envoyer" />
+</fieldset>
+</form>
+	<script type="text/javascript">
+        
+        </script>
+ 
+</body>
 </html>
