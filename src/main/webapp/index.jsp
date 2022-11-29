@@ -11,7 +11,7 @@
     </head>
     <body >
         <div style="text-align:center">
-        <h1 style="align:center">Welcome to our site to learn devops vvvvd brgbbf vdvd jnghjgfjfgvd</h1>
+        <h1 style="align:center">Welcome to our site to learn devops vvvvd brgbbf vdvd jnghjgfjtjfjjfgvd</h1>
      
     
          
