@@ -7,9 +7,7 @@ pipeline {
         
     
         
-           stage('Notification') {
-            steps {mail bcc: '', body: 'build notification', cc: '', from: '', replyTo: '', subject: 'notifications from pipeline  with the name    DevopsPipelineFinal', to: 'annabi.mabrouka99@gmail.com'            }
-        }
+          
         
 stage('install') {
              steps {
@@ -20,7 +18,7 @@ stage('install') {
 stage('Build') {
           
             steps {
-                sh "mvn package "
+                sh "mvn package kkkk "
                  
             }
            } 
@@ -39,6 +37,8 @@ stage('Build') {
                  
             }
            } 
-   
+    stage('Notification') {
+            steps {mail bcc: '', body: 'build notification', cc: '', from: '', replyTo: '', subject: 'notifications from pipeline  with the name    DevopsPipelineFinal', to: 'annabi.mabrouka99@gmail.com'            }
+        }
     }
 }
