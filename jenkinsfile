@@ -36,6 +36,13 @@ stage('Build') {
   }
   
     }
+    stage('Docker') {
+          
+            steps {
+              
+                 
+            }
+           } 
    
     }
 }
