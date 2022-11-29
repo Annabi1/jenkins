@@ -18,7 +18,7 @@ stage('install') {
 stage('Build') {
           
             steps {
-                sh "mvn package kkkk "
+                sh "mvn package  "
                  
             }
            } 
