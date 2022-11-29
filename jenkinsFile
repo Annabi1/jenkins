@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+
+    stages {
+       
+           stage('Notification') {
+            steps {
+mail bcc: 'hhhhhhhhhhhhhhhhhhhhhhh', body: 'hteeeee', cc: 'hhhhhhhhhhhhhhh', from: '', replyTo: '', subject: 'build is triggred', to: 'annabi.mabrouka99@gmail.com'            }
+        }
+        
+        stage('Git'){
+            steps{
+git branch: 'main', url: 'https://github.com/Annabi1/jenkins.git'
+}
+            
+        }
+stage('install') {
+             steps {
+                sh "mvn install -Dmaven.test.skip=true -P prod"
+                }
+            }
+
+stage('Build') {
+          
+            steps {
+                sh "mvn package"
+                 
+            }
+           } 
+          
+   stage('deploy') {
+             steps {
+                 
+                 deploy adapters: [tomcat7(credentialsId: 'tomcatpipeline', path: '', url: 'http://192.168.220.137:8081')], contextPath: 'index', war: '**/*war'
+  }
+  
+    }}
+}
