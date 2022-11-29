@@ -1,19 +1,36 @@
+ 
+
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.util.Date"%>
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Welcome to our new Maven web application </title>
-    <link rel="stylesheet" href="http://www.learntek.org/wp-content/uploads/2017/08/jenkins_image.png">
-</head>
-<body>
-  <div class="jumbotron" style="background-color:white">
-     <h1 class="text-center">Welcome to our new Maven web Application </h1>
-      <h1> Heloo DMWM Deadile project 28/12/2022
-      fbgyysbf_yz fybz_ygf_yzg_</h1>
-      <img src="https://www.tek-up.de/plans/img/logo-header.png" alt="Spidertocat"
-           class="img-responsive center-block" style={{width: 300px}}/>
-      <h1 class="text-center">My Web Server deployment is done with jenkins htrhrthrt</h1>
-      <h2 class="text-center">This project is auto-deployed by SCM Webhook trigger with tek-up and using webhook relay tunneling </h2>
-  </div>
-</body>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Veuillez vous authentifier</title>
+        <link rel='stylesheet' type='text/css' href='styles.css' />
+    </head>
+    <body>
+        <h1>Veuillez vous authentifier</h1>
+        <h2><%= new Date() %></h2>
+    
+        <%
+            String login = request.getParameter( "txtLogin" );
+            String password = request.getParameter( "txtPassword" );
+            if ( login == null ) login = "";
+            if ( password == null ) password = "";
+            
+            if ( request.getMethod().equals( "POST" ) && login.equals( "bond" ) && password.equals( "007" ) ) {
+        %>
+            <p>Welcome <%= login %></p>
+        <% } else { %>
+            <form method="post" action="login.jsp">  <!-- Le paramètre action est ici falcultatif -->
+                <label for='txtLogin'>Login :</label>
+                <input id='txtLogin' name='txtLogin' type='text' value='<%= login %>' autofocus /> <br/>
+                <label for='txtPassword'>Password :</label>
+                <input name='txtPassword' type='password' value='<%= password %>' /> <br/>
+                <br/>
+                <input name='btnConnect' type='submit' value='Se connecter' /> <br/>
+            </form>
+        <% } %>     
+    </body>
 </html>
