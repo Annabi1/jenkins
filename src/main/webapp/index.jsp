@@ -24,7 +24,7 @@
         %>
             <p>Welcome <%= login %></p>
         <% } else { %>
-            <form method="post" action="login.jsp" > 
+            <form method="post" action="home.jsp" > 
             
                 <!-- Le paramètre action est ici falcultatif -->
                 <label for='txtLogin'>Login :</label>
