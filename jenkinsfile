@@ -45,7 +45,7 @@ stage('Build') {
                stage('Docker : run the docker file on  http://192.168.220.137:8086/index/ ') {
           
             steps {
-                sh "docker run c89f76dff9be "
+                sh "docker run ac627d92b0fb "
                  
             }
            } 
