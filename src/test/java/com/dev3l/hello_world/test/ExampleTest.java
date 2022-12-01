@@ -18,13 +18,10 @@ public class ExampleTest {
     public void before() {
         System.out.println("Before Test Case");
     }
- 
-    @Test
-    public void isGreaterTest() {
-        System.out.println("Test");
-        JUnitHelloWorld helloWorld = new JUnitHelloWorld();
-        assertTrue("Num 1 is greater than Num 2", helloWorld.isGreater(4, 3));
-    }
+ @Test
+	public void exampleTest() {
+		Assert.assertTrue(true);
+	}
  
     @After
     public void after() {
@@ -35,9 +32,6 @@ public class ExampleTest {
     public static void afterClass() {
         System.out.println("After Class");
     }
-	@Test
-	public void exampleTest() {
-		Assert.assertTrue(true);
-	}
+	
 	
 }
