@@ -62,7 +62,6 @@
                                     <addClasspath>true</addClasspath>
                                     <!-- Specifies that all dependencies of our application are found -->
                                     <!-- Configures the main class of the application -->
-                                    <mainClass>com.dev3l.hello_world.test</mainClass>
                                 </manifest>
                             </archive>
 				</configuration>
