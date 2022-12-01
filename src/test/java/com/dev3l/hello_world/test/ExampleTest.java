@@ -10,6 +10,6 @@ public class ExampleTest {
 	}
 	@Test
 	public void exampleTest2() {
-		Assert.assertTrue(flase);
+		Assert.assertTrue(false);
 	}
 }
