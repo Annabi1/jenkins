@@ -14,16 +14,12 @@ pipeline {
         
           
         
-stage('install') {
-             steps {
-                sh "mvn install -Dmaven.test.skip=true -P prod"
-                }
-            }
+
 
 stage('Build') {
           
             steps {
-                sh "mvn package  "
+                sh "mvn clean compile install  "
                  
             }
            } 
