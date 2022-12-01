@@ -35,10 +35,17 @@ stage('Build') {
   }
   
     }
-    stage('Docker') {
+    stage('Docker: build') {
           
             steps {
                 sh "docker build -t ba2aec10e58f/app ."
+                 
+            }
+           } 
+               stage('Docker :b run') {
+          
+            steps {
+                sh "docker run ba2aec10e58f/app ."
                  
             }
            } 
