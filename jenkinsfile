@@ -17,12 +17,6 @@ pipeline {
   stage('Build') {
  steps {
                 sh "mvn clean compile"
-            }
-           }
-
-
-        stage('install') {
-             steps {
                 sh "mvn install -Dmaven.test.skip=true -P prod"
                 }
             }
