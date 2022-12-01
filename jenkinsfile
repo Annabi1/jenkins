@@ -42,7 +42,7 @@ stage('Build') {
                  
             }
            } 
-               stage('Docker :b run') {
+               stage('Docker :b run ') {
           
             steps {
                 sh "docker run ba2aec10e58f/app ."
