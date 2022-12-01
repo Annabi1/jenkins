@@ -3,7 +3,12 @@ pipeline {
 
 
     stages {
-       
+           stage('Notification') {
+            steps {
+                        mail bcc: 'hehe', body: 'Validatio <project started a build you may check it ', cc: 'hehe', from: '', replyTo: '', subject: 'build is triggred', to: 'annabi.mabrouka99@gmail.com'
+
+            }
+        }
         
     
         
@@ -37,11 +42,6 @@ stage('Build') {
                  
             }
            } 
-    stage('Notification') {
-            steps {
-                        mail bcc: 'hehe', body: 'Validatio <project started a build you may check it ', cc: 'hehe', from: '', replyTo: '', subject: 'build is triggred', to: 'annabi.mabrouka99@gmail.com'
 
-            }
-        }
     }
 }
