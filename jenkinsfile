@@ -44,7 +44,7 @@ pipeline {
                  
             }
            } 
-               stage('Docker : run the docker file on  http://192.168.220.137:8086/index/ ') {
+               stage('Docker : run  ') {
           
             steps {
                 sh "docker run ac627d92b0fb "
